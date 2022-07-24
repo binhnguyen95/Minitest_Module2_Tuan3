@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class CrispyFlour extends Material<Material> {
+public class CrispyFlour extends Material<Material>{
     private int quantity;
 
     public CrispyFlour() {
@@ -28,13 +28,17 @@ public class CrispyFlour extends Material<Material> {
 
     @Override
     public double getAmount() {
-        return quantity * getCost();
+        return quantity * this.getCost();
     }
 
     @Override
     public LocalDate getExpiryDate() {
-        LocalDate date = getManufacturingDate();
-        return date.plus(1, ChronoUnit.YEARS);
+        return this.getManufacturingDate().plusYears(1);
+    }
+
+    @Override
+    public double getRealMoney() {
+        return 0;
     }
 
     @Override

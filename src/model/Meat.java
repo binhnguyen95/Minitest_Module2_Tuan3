@@ -29,13 +29,17 @@ public class Meat extends Material<Material> {
 
     @Override
     public double getAmount() {
-        return weight * getCost();
+        return weight * this.getCost();
     }
 
     @Override
     public LocalDate getExpiryDate() {
-        LocalDate date = getManufacturingDate();
-        return date.plus(7, ChronoUnit.DAYS);
+        return this.getManufacturingDate().plusWeeks(1);
+    }
+
+    @Override
+    public double getRealMoney() {
+        return 0;
     }
 
     @Override

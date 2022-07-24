@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public abstract class Material<C extends Material> {
+public abstract class Material<C extends Material> implements Discount {
     private String id;
     private String name;
     private LocalDate manufacturingDate;
@@ -54,5 +54,16 @@ public abstract class Material<C extends Material> {
 
     public abstract LocalDate getExpiryDate();
 
+    public abstract double getRealMoney();
 
+
+    @Override
+    public String toString() {
+        return "Material{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", manufacturingDate=" + manufacturingDate +
+                ", cost=" + cost +
+                '}';
+    }
 }

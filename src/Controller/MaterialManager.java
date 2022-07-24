@@ -1,5 +1,7 @@
 package Controller;
 
+import model.CrispyFlour;
+import model.Discount;
 import model.Material;
 
 import java.util.ArrayList;
@@ -13,15 +15,24 @@ public class MaterialManager{
         materials.add(mate);
     }
 
-    public void remove(ArrayList<Material> mat) {
+    public void addMeat(Material mate) {
+        materials.add(mate);
+    }
+
+    public void removeMaterial(ArrayList<Material> arr) {
         System.out.println("Nhap id san pham can xoa:");
         Scanner scan = new Scanner(System.in);
         String id = scan.nextLine();
-        for (int i = 0; i < mat.size(); i++) {
-            if (mat.get(i).getId().equals(id)) {
-                mat.remove(i);
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i).getId().equals(id)) {
+                arr.remove(i);
+                break;
             }
         }
+    }
+
+    public void edit(ArrayList<Material> mat) {
+
     }
 
 }
