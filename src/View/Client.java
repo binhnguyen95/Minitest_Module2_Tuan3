@@ -40,11 +40,11 @@ public class Client {
     public static void main(String[] args) {
 
         System.out.println(arr.get(0).getExpiryDate());
-
+        System.out.println(arr.get(6).getRealMoney());
         MaterialManager array = new MaterialManager();
 //        array.addFlour(newFlour());
 //        array.addMeat(newMeat());
-//        System.out.println(arr);
+        System.out.println(arr);
 
 
     }

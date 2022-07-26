@@ -11,7 +11,6 @@ public class MaterialManager{
     public static ArrayList<Material> materials = new ArrayList<>();
 
     public void addFlour(Material mate) {
-
         materials.add(mate);
     }
 
@@ -31,8 +30,5 @@ public class MaterialManager{
         }
     }
 
-    public void edit(ArrayList<Material> mat) {
-
-    }
 
 }

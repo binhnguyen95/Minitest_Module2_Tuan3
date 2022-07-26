@@ -38,13 +38,30 @@ public class CrispyFlour extends Material<Material>{
 
     @Override
     public double getRealMoney() {
-        return 0;
+        LocalDate now = LocalDate.now();
+        LocalDate timeline1 = getExpiryDate().minusDays(120);
+        LocalDate timeline2 = getExpiryDate().minusDays(60);
+        if (timeline2.isAfter(now)) {
+            if (timeline1.isAfter(now)) return getAmount() / 10*9.5;
+            return getAmount() / 10*8;
+        }
+        else {
+            return getAmount() / 10*6;
+        }
+
     }
 
     @Override
     public String toString() {
         return "CrispyFlour{" +
-                "quantity=" + quantity +
+                "id='" + super.getId() + '\'' +
+                ", name='" + super.getName() + '\'' +
+                ", manufacturingDate=" + getManufacturingDate() +
+                ", expireDate=" + getExpiryDate() +
+                ", cost=" + super.getCost() +
+                " quantity=" + quantity +
                 '}';
     }
+
+
 }

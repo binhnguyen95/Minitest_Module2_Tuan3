@@ -38,14 +38,29 @@ public class Meat extends Material<Material> {
     }
 
     @Override
-    public double getRealMoney() {
-        return 0;
+    public String toString() {
+        return "Meat{" +
+                "id= '" + super.getId() + '\'' +
+                ", name='" + super.getName() + '\'' +
+                ", manufacturingDate=" + getManufacturingDate() +
+                ", expireDate=" + getExpiryDate() +
+                ", cost=" + super.getCost() +
+                " weight=" + weight +
+                '}';
     }
 
     @Override
-    public String toString() {
-        return "Meat{" +
-                "weight=" + weight +
-                '}';
+    public double getRealMoney() {
+        LocalDate now = LocalDate.now();
+        LocalDate timeline1 = getExpiryDate().minusDays(5);
+        if (timeline1.isAfter(now)) {
+            return getAmount() / 10 * 9;
+        } else {
+            return getAmount() / 10 * 7;
+        }
+
+
+
+
     }
 }
